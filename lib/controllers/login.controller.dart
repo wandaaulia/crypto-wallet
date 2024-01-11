@@ -10,24 +10,29 @@ class LoginController extends GetxController {
 
   var inputPassword = "";
 
+  var warningText = "".obs;
+
   final box = GetStorage();  
 
   @override
   void onInit() {}
 
   loginBtn() async {
-    Get.to(() => MainWrapper());
 
-    try {
-      print("input email dan password");
-      print(inputEmail);
-      print(inputPassword);
-      
-      box.write('email', '${inputEmail}');
 
+      if(inputEmail != "" && inputPassword != "") {
+      final myMap = {'email': inputEmail, 'password': inputPassword};
+
+      box.write('auth', myMap);
 
       Get.to(() => MainWrapper());
-    } catch (e) {}
+
+       warningText.value = "";
+
+      } else {
+        warningText.value = "Email dan Password harus diisi";
+      }
+
   }
 
   Future<void> saveDataToLocalStorage(String key, String value) async {

@@ -13,13 +13,8 @@ import 'package:get_storage/get_storage.dart';
 class MainController extends GetxController {
   List myCoins = [].obs;
 
-  var inputEmail = "";
-  var inputPassword = "";
-
   @override
   void onInit() async {
-
-      // await GetStorage.init();
   }
 
   buyCoinCrypto(id) {

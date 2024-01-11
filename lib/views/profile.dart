@@ -6,9 +6,6 @@ import 'package:get/get.dart';
 class Profile extends StatelessWidget {
    Profile({super.key});
 
-
-   MainController mainController = Get.find();
-
    ProfileController profileController = Get.put(ProfileController());
 
   @override
@@ -29,7 +26,7 @@ class Profile extends StatelessWidget {
                 width: 300,
                 alignment: Alignment.center,
                 margin: EdgeInsets.only(top: 60),
-                child: Text("${mainController.inputEmail}"),
+                child: Text("${profileController.email}"),
               ),
               Container(
                 color: Colors.white,
@@ -41,7 +38,7 @@ class Profile extends StatelessWidget {
                 width: 300,
                 alignment: Alignment.center,
                 margin: EdgeInsets.only(top: 30),
-                child: Text("${mainController.inputPassword}"),
+                child: Text("${profileController.password}"),
               ),
               Container(
                 color: Colors.white,

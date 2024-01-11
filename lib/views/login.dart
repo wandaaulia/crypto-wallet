@@ -5,14 +5,14 @@ import 'package:crypto_final_project/views/home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/instance_manager.dart';
 import 'package:get/route_manager.dart';
+import 'package:get/get.dart';
+
 
 
 class Login extends StatelessWidget {
    Login({super.key});
 
    LoginController loginController = Get.put(LoginController());
-
-   MainController mainController = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class Login extends StatelessWidget {
               SizedBox(height: 10, width: 10),
               TextField(
                 onChanged: (value) {
-                     mainController.inputEmail = value.toString();
+                     loginController.inputEmail = value.toString();
                 },
                 style: TextStyle(color: Colors.white),
                 decoration: InputDecoration(
@@ -56,7 +56,7 @@ class Login extends StatelessWidget {
               SizedBox(height: 10, width: 10),
               TextField(
                  onChanged: (value) {
-                    mainController.inputPassword = value.toString();
+                    loginController.inputPassword = value.toString();
                 },
                 style: TextStyle(color: Colors.white),
                 decoration: InputDecoration(
@@ -68,6 +68,9 @@ class Login extends StatelessWidget {
                   suffixIcon: Icon(Icons.password, color: Colors.grey)
                 ),
               ),
+              Obx(() {
+              return Container(margin: EdgeInsets.only(top: 20) ,child: Text("${loginController.warningText.value}", style: TextStyle(color: Colors.red, fontSize: 14),));
+              }),
               Container(
                 margin: EdgeInsets.only(top: 30),
                 child: ElevatedButton(onPressed: () { loginController.loginBtn(); }, child: Text("Sign in", style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w700,

@@ -9,13 +9,18 @@ class ProfileController extends GetxController {
 
  final box = GetStorage();
 
+ var email = "";
+
+ var password = "";
+
  @override
   void onInit() {
  
-    var ini = box.read('quote');
-    print("local storage");
+    var ini = box.read('auth');
 
-    print(ini);
+    email = ini["email"];
+
+    password = ini["password"];
   }
   
 
