@@ -1,3 +1,3 @@
-# crypto_final_project
+# Crypto Wallet App
 
 A new Flutter project.
